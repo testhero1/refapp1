@@ -1,0 +1,9 @@
+<h2>Expenses List</h2>
+<ul class="expenses">
+  <li *ngFor="let expense of expenses$ | async"
+    [class.selected]="expense.id === selectedId">
+     <a [routerLink]="['/expense-center', expense.id]">
+      <span class="badge">{{ expense.id }}</span>{{ expense.name }}
+    </a>
+  </li>
+</ul>

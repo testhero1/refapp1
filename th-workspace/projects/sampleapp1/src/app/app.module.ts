@@ -11,6 +11,9 @@ import { CfsModule } from './cfs/cfs.module';
 //import { CfDetailsComponent } from './cf-details/cf-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { ExpenseCenterModule }      from './expense-center/expense-center.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserAnimationsModule,
     FormsModule,
     CfsModule,
+    ExpenseCenterModule,
     AppRoutingModule
   ],
   providers: [],
