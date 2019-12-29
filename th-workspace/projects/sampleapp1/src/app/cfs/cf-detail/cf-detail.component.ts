@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -18,15 +18,19 @@ export class CfDetailComponent implements OnInit {
   
   constructor(
       private route: ActivatedRoute,
-      //private router: Router,
+      private router: Router,
       private service: CFService
   ) {}
   
   ngOnInit() {
-  this.cf$ = this.route.paramMap.pipe(
-    switchMap((params: ParamMap) =>
-      this.service.getCf(params.get('id')))
-  );
-}
-
+      this.cf$ = this.route.paramMap.pipe(
+        switchMap((params: ParamMap) =>
+          this.service.getCf(params.get('id')))
+      );
+  }
+  
+  gotoCFList(cf: CF){
+      let cfId =   cf? cf.id : null;        
+      this.router.navigate(['/cfs', {id: cfId, foo: 'foo'}]);
+  }
 }
